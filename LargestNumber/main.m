@@ -15,11 +15,11 @@ int main(int argc, const char * argv[]) {
     ArrayUtility *largestNumberFinder = [[ArrayUtility alloc] init];
     
 //    array with negative number(s) must use double quotes to work
-    NSArray *numbers = @[@"-44", @"0", @"5", @"-100"];
+    NSArray *numbers = @[@"-44", @"0", @"100", @"-100"];
     
-    int i = [largestNumberFinder largestNumber:numbers];
+    NSNumber *i = [largestNumberFinder largestNumber:numbers];
     
-    NSLog(@"%d", i);
+    NSLog(@"%@", i);
     
 ////    highest number in the loop initially set to a number lower than all numbers in the array
 //    NSNumber *highestNumber = @-999;

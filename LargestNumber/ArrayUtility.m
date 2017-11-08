@@ -10,7 +10,7 @@
 
 @implementation ArrayUtility
 
-- (int)largestNumber:(NSArray*)numbers
+- (NSNumber*)largestNumber:(NSArray*)numbers
 {
   //    highest number in the loop initially set to a number lower than all numbers in the array
   NSNumber *highestNumber = @-999;

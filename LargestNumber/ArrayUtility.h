@@ -10,6 +10,6 @@
 
 @interface ArrayUtility : NSObject
 
-- (int)largestNumber: (NSArray*)numbers;
+-(NSNumber *) largestNumber: (NSArray *) numbers;
 
 @end
