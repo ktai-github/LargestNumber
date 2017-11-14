@@ -11,5 +11,7 @@
 @interface ArrayUtility : NSObject
 
 -(NSNumber *) largestNumber: (NSArray *) numbers;
+-(NSNumber *) smallestNumber: (NSArray *) numbers;
+-(NSNumber *) medianNumber: (NSArray *) numbers;
 
 @end
