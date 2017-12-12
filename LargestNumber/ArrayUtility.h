@@ -10,8 +10,8 @@
 
 @interface ArrayUtility : NSObject
 
--(NSNumber *) largestNumber: (NSArray *) numbers;
--(NSNumber *) smallestNumber: (NSArray *) numbers;
--(NSNumber *) medianNumber: (NSArray *) numbers;
+-(NSNumber *) largestNumber: (NSMutableArray *) numbers;
+-(NSNumber *) smallestNumber: (NSMutableArray *) numbers;
+-(NSNumber *) medianNumber: (NSMutableArray *) numbers;
 
 @end

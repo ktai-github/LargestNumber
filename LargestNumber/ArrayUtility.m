@@ -10,10 +10,10 @@
 
 @implementation ArrayUtility
 //////////////////////////////////////////////////////////////
-- (NSNumber*)largestNumber:(NSArray*)numbers
+- (NSNumber*)largestNumber:(NSMutableArray*)numbers
 {
-  //    highest number in the loop initially set to a number lower than all numbers in the array
-  NSNumber *highestNumber = @-999;
+  //    highest number initially set to the first number of the original array
+  NSNumber *highestNumber = [numbers firstObject];
   
   //    each number of the array gets assigned to NSNumber variable in the loop initially set to 0
   NSNumber *number = @0;
@@ -34,10 +34,10 @@
   return highestNumber;
 }
 //////////////////////////////////////////////////////////////
-- (NSNumber*)smallestNumber:(NSArray*)numbers
+- (NSNumber*)smallestNumber:(NSMutableArray*)numbers
 {
-  //    highest number in the loop initially set to a number lower than all numbers in the array
-  NSNumber *smallestNumber = @999;
+  //    smallest number initially set to the first number of the original array
+  NSNumber *smallestNumber = [numbers firstObject];
   
   //    each number of the array gets assigned to NSNumber variable in the loop initially set to 0
   NSNumber *number = @0;
@@ -58,12 +58,57 @@
   return smallestNumber;
 }
 //////////////////////////////////////////////////////////////
-- (NSNumber*)medianNumber:(NSArray*)numbers
+- (NSNumber*)medianNumber:(NSMutableArray*)numbers
 {
+  
+//  median number initially set to nil
   NSNumber *medianNumber = nil;
   
-//  sort the numbers in the array passed into the method
-  NSArray *sorted = [numbers sortedArrayUsingSelector:@selector(compare:)];
+  //    smallest number initially set to the first number of the original array
+  NSNumber *smallestNumber = [numbers firstObject];
+  
+  //    each number of the array will be evaluated, initially set to 0
+  NSNumber *number = @0;
+  
+//  separate sorted array to store the numbers after sorting into ascending order
+  NSMutableArray *sorted = [[NSMutableArray alloc]init];
+  
+  //initial count of the numbers in the original array before it gets sorted
+  int k = (unsigned int)numbers.count;
+  
+  //    loop through as many times as the original count of the array
+  for (int i = 0; i < k; i++) {
+
+//    loop through each number in the array as many times as the current count of the original array
+    for (int j = 0; j < numbers.count; j++) {
+      
+      //      store each number of the original array as current number
+      number = numbers[j];
+      
+      //      current smallest number larger than the current number being evaluated
+      if (smallestNumber.intValue > number.intValue) {
+        
+        //        assign the current number of the array to be the smallest number
+        smallestNumber = number;
+        
+      }
+    }
+    
+//    current count of the array is not 0
+    if (numbers.count != 0) {
+      
+//      remove the smallest number from the original array
+      [numbers removeObject:smallestNumber];
+      
+//      add the smallest number to the sorted array
+      [sorted addObject:smallestNumber];
+      
+//      smallest number set to the first number of the original array with the previous smallest number of original array having been removed
+      smallestNumber = [numbers firstObject];
+    }
+    
+  }
+  NSLog(@"ascending order %@", sorted);
   
 //  odd number of elements in the array
   if (sorted.count % 2 != 0) {
