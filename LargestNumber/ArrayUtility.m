@@ -58,6 +58,8 @@
   return smallestNumber;
 }
 //////////////////////////////////////////////////////////////
+//sort the array in ascending order by removing the smallest number and adding it to the first position in a separate array, then remove the second smallest number and add it to the next position in that same separate array. these steps are repeated until all the numbers have been added to that separate array, in which the numbers are added in order from smallest to largest. find the median number with the array in ascending order
+
 - (NSNumber*)medianNumber:(NSMutableArray*)numbers
 {
   
