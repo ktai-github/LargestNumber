@@ -13,5 +13,6 @@
 -(NSNumber *) largestNumber: (NSMutableArray *) numbers;
 -(NSNumber *) smallestNumber: (NSMutableArray *) numbers;
 -(NSNumber *) medianNumber: (NSMutableArray *) numbers;
+-(NSMutableArray *) sortNumbers: (NSMutableArray *) numbers;
 
 @end
